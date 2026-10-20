@@ -1,27 +1,6 @@
-package main
+package matching
 
-import (
-	"fmt"
-	"slices"
-)
-
-func main() {
-	adj := [][]int{
-		{1},
-		{2},
-		{0, 3},
-		{},
-	}
-	fmt.Println(adj)
-	fmt.Println()
-	res := findCycle(adj)
-	if res == nil {
-		fmt.Println("No cycle")
-	} else {
-		fmt.Println("Cycle found!")
-		fmt.Println(res)
-	}
-}
+import "slices"
 
 type color uint8
 
@@ -31,7 +10,7 @@ const (
 	black
 )
 
-func findCycle(adj [][]int) []int {
+func FindCycle(adj [][]int) []int {
 	state := make([]color, len(adj))
 	pos := make([]int, len(adj))
 	var stack []int
